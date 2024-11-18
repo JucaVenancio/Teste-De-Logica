@@ -1,16 +1,29 @@
-alert("Welcome to our website");
+alert("Welcome to our game the secret number!");
+let maxNumber = 500;
+let secretNumber = parseInt(Math.random() * maxNumber + 1);
+console.log(secretNumber);
+let inputAttempt;
+let contAttempt = 1;
 
+while (inputAttempt != secretNumber) {
 
-name = prompt("What's your name?");
-idade = prompt("");
-numberOfSales = 50;
-balanceAvailable = 1000.00;
+    inputAttempt = prompt(`Choose a number between 1 and ${maxNumber}:`);
 
-errorMessage = "Error! Fill in all fields!!!";
+    if (inputAttempt == secretNumber) {
+        break;
+    } else {
 
-if(idade >= 18)
-{
-    alert("If you are of legal age, you can get your license.");
+        if (inputAttempt > secretNumber) {
+            alert(`The secret number a smaller [${inputAttempt}]`);
+        } else {
+
+            alert(`The secret number a bigger [${inputAttempt}]`);
+        }
+    }
+
+    contAttempt++;
 }
-alert(errorMessage);
 
+let wordAttempt = contAttempt > 1 ? "attempts" : "attempt";
+
+alert(`Congratulations you find the secret number (${secretNumber}) with (${contAttempt}) ${wordAttempt}!!!`);
